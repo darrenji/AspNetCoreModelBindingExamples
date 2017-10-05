@@ -18,7 +18,7 @@ namespace AspNetCoreModelBindingExamples.Controllers
             repository = repo;
         }
         // GET: /<controller>/
-        public IActionResult Index(int? id)
+        public IActionResult Index([FromQuery]int? id)
         {
             Person person;
 
@@ -41,6 +41,10 @@ namespace AspNetCoreModelBindingExamples.Controllers
         public ViewResult Names(IList<string> names) => View(names ?? new List<string>());
 
         public ViewResult Address(IList<AddressSummary> addresses) => View(addresses ?? new List<AddressSummary>());
+
+        //public string Header([FromHeader(Name ="Accept-Language")] string accept) => $"Header: {accept}";
+
+        public ViewResult Header(HeaderModel model) => View(model);
 
     }
 }
