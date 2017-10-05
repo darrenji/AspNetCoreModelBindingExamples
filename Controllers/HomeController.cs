@@ -30,5 +30,11 @@ namespace AspNetCoreModelBindingExamples.Controllers
                 return NotFound();
             }
         }
+
+        public ViewResult Create() => View(new Person());
+
+        [HttpPost]
+        public ViewResult Create(Person model) => View("Index", model);
+
     }
 }
