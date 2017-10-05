@@ -18,9 +18,17 @@ namespace AspNetCoreModelBindingExamples.Controllers
             repository = repo;
         }
         // GET: /<controller>/
-        public IActionResult Index(int id)
+        public IActionResult Index(int? id)
         {
-            return View(repository[id]);
+            Person person;
+
+            if(id.HasValue && (person=repository[id.Value]) != null)
+            {
+                return View(person);
+            } else
+            {
+                return NotFound();
+            }
         }
     }
 }
