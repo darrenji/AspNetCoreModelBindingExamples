@@ -29,4 +29,10 @@ namespace AspNetCoreModelBindingExamples.Models
     {
         Admin, User, Guest
     }
+
+    public class AddressSummary
+    {
+        public string City { get; set; }
+        public string Country { get; set; }
+    }
 }
